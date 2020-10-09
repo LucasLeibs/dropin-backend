@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :bookmarks
+  resources :attendings
+  resources :events
 resources :sessions, only: [:create]
 resources :registrations, only: [:create, :index]
 delete :logout, to: "sessions#logout"
