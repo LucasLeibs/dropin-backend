@@ -1,7 +1,12 @@
 class RegistrationsController < ApplicationController
+
+    def index 
+        users = User.all
+        render json: users
+    end
     def create 
         user = User.create!(
-            email: params['email'], password: params['password'], password_confirmation: params['password_confirmation'])
+            first_name: params['first_name'], last_name: params['last_name'], email: params['email'], password: params['password'], password_confirmation: params['password_confirmation'])
 
             if user 
                 session[:user_id] = user.id
