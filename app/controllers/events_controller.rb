@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
     def index
-        @event = Event.all
+        @events = Event.all
         render json: @events
     end
     
@@ -12,13 +12,35 @@ class EventsController < ApplicationController
           render json: { message: 'This ID does not exist' }
         end
       end
+
     def create
         @event = Event.create(event_params)
+        if @event.valid?
+          render json: @event
+        else
+          render json: { error: 'failed to add new event' }, status: :not_acceptable
+        end
     end
 
-    private 
-    def event_params
-        params.require(:event).permit(:user_id, :name, :address, :city, :state. :zipcode, :time, :date, :sport)
+    def update
+      @event = Event.find_by(id: params[:id])
+      if @event.update(event_params)
+        render json: @event
+      else
+        render json: { error: 'Something went wrong' }
       end
     end
+
+    def destroy 
+      @event = Event.find_by(id: params[:id])
+      @event.destroy
+
+      render json: { message: 'event deleted' }
+    end
+  
+    private 
+    def event_params
+        params.require(:event).permit(:user_id, :name, :address, :city, :state, :zipcode, :time, :date, :sport, :latitude, :longitude)
+    end
+  
 end
