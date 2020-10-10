@@ -6,10 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Event.destroy_all
+Attending.destroy_all
+Bookmark.destroy_all
+Event.destroy_all
 User.destroy_all
 
 
-user1 = User.create({first_name: "Lucas", last_name:"Leibs", email: "poop@gmail.com", password: "lame", password_confirmation: "lame"})
+user1 = User.create({first_name: "Lucas", last_name:"Leibs", email: "leibs@gmail.com", password: "lame", password_confirmation: "lame"})
+user2 = User.create({first_name: "Jim", last_name:"Bob", email: "himbob@gmail.com", password: "lame", password_confirmation: "lame"})
 
 
 
@@ -43,4 +47,6 @@ Event.create({ user_id: User.all.sample.id, name: 'Basketball Pickup',
     sport: "soccer"
 })
 
+attending1 = Attending.create({ user_id: User.all.sample.id, event_id: Event.all.sample.id })
+bookmark1 = Bookmark.create({ user_id: User.all.sample.id, event_id: Event.all.sample.id })
 puts "seeded"

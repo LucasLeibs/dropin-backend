@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :time
       t.string :date
       t.string :sport
+      t.text :details
       t.string :image
       t.references :user, null: false, foreign_key: true
 

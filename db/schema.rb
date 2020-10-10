@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_220559) do
     t.string "time"
     t.string "date"
     t.string "sport"
+    t.text "details"
     t.string "image"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
