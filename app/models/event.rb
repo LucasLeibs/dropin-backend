@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   geocoded_by :complete_address
-  after_validation :geocode, if: ->(obj) { obj.address.present? and obj.address_changed? }
+  before_validation :geocode
   def complete_address
     [address, city, state, zipcode].compact.join(', ')
   end

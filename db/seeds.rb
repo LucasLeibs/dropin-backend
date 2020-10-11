@@ -44,7 +44,8 @@ Event.create({ user_id: User.all.sample.id, name: 'Basketball Pickup',
     zipcode: '98260',
     time: "8:00PM",
     date:"8/10/20",
-    sport: "soccer"
+    sport: "soccer",
+    image: 'https://capi.myleasestar.com/v2/dimg-crop/59332386/700x400/59332386.jpg'
 })
 
 attending1 = Attending.create({ user_id: User.all.sample.id, event_id: Event.all.sample.id })
