@@ -14,6 +14,7 @@ class AttendingsController < ApplicationController
       end
       
     def create
+      
         @attending = Attending.create(attending_params)
         if @attending.valid?
           render json: @attending
