@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :bookmarks, only: [:create, :index]
-  resources :attendings, only: [:create, :index]
-  resources :events, only:[:create, :index]
+  resources :attendings, only: [:create, :index, :show, :destroy]
+  resources :events, only:[:create, :index, :show, :destroy]
 resources :sessions, only: [:create]
 resources :registrations, only: [:create]
 resources :users, only: [:index]

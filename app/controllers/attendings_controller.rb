@@ -26,8 +26,9 @@ class AttendingsController < ApplicationController
     
 
     def destroy 
+     
       @attending = Attending.find_by(id: params[:id])
-      @event.destroy
+      @attending.destroy
 
       render json: { message: 'event deleted' }
     end
