@@ -45,13 +45,14 @@ ActiveRecord::Schema.define(version: 2020_10_16_044242) do
     t.index ["user_id"], name: "index_attendings_on_user_id"
   end
 
-  create_table "bookmarks", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
+    t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_bookmarks_on_event_id"
-    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -87,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_044242) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "attendings", "events"
   add_foreign_key "attendings", "users"
-  add_foreign_key "bookmarks", "events"
-  add_foreign_key "bookmarks", "users"
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users"
   add_foreign_key "events", "users"
 end

@@ -14,10 +14,10 @@ class RegistrationsController < ApplicationController
     end
 
     def update 
-
+        byebug
     end
 private 
 def registration_params
-    params.require(:registration).permit(:first_name, :last_name, :email, :password, :password_confirmation, :photo)
+    params.require(:registration).permit(:first_name, :last_name, :email, :password, :password_confirmation, :file)
 end
 end

@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Attending.destroy_all
-Bookmark.destroy_all
+Comment.destroy_all
 Event.destroy_all
 User.destroy_all
 
@@ -49,5 +49,5 @@ Event.create({ user_id: User.first.id, name: 'Basketball Pickup',
 })
 
 attending1 = Attending.create({ user_id: User.first.id, event_id: Event.last.id })
-bookmark1 = Bookmark.create({ user_id: User.all.sample.id, event_id: Event.all.sample.id })
+comment1 = Comment.create({ user_id: User.last.id, event_id: Event.last.id, body:"this event was the bomb!" })
 puts "seeded"

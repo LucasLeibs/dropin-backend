@@ -9,7 +9,7 @@ class Event < ApplicationRecord
   has_many :attendings
   has_many :attending_users, through: :attendings, source: :user
   
-  has_many :bookmarks
-  has_many :bookmarked_users, through: :bookmarks, source: :user
-  has_one_attached :photo
+  has_many :comments
+  has_many :user_comments, through: :comments, source: :user
+  # has_one_attached :file
 end

@@ -41,4 +41,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'geocoder', '~> 1.6.3'
 gem "aws-sdk-s3", require: false
+gem 'dotenv-rails', '~> 2.7'
 
